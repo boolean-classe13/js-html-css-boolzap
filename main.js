@@ -9,6 +9,24 @@ $('.new-message-inputs').keypress(function(event) {
     }
 });
 
+// intercetto il focus nell'input del messaggio
+$('.new-message-inputs').focus(function() {
+    // tolgo la classe "fa-microphone" dall'icona di destra
+    // aggiungo la classe "fa-paper-plane"
+    // $('.right-footer-icon i').removeClass('fa-microphone').addClass('fa-paper-plane');
+    // posso usare toggleClass per aggiungere e togliere le classi in modo compatto
+    $('.right-footer-icon i').toggleClass('fa-microphone fa-paper-plane');
+});
+
+// intercetto la perdita di focus dall'input del messaggio
+$('.new-message-inputs').blur(function() {
+    // aggiungo la classe "fa-microphone" dall'icona di destra
+    // tolgo la classe "fa-paper-plane"
+    // $('.right-footer-icon i').removeClass('fa-paper-plane').addClass('fa-microphone');
+    // posso usare toggleClass per aggiungere e togliere le classi in modo compatto
+    $('.right-footer-icon i').toggleClass('fa-paper-plane fa-microphone');
+});
+
 // funzione per inviare un nuovo messaggio
 function invia_messaggio() {
     // recupero il testo inserito dall'utente nell'input
