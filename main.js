@@ -27,6 +27,37 @@ $('.new-message-inputs').blur(function() {
     $('.right-footer-icon i').toggleClass('fa-paper-plane fa-microphone');
 });
 
+// intercetto la digitazione nell'input della ricerca
+$('#contacts-filter').keyup(function() {
+    // recupero il testo contenuto nell'input di ricerca
+    var testo_ricerca = $('#contacts-filter').val().trim().toLowerCase();
+    // console.log('testo cercato: ' + testo_ricerca);
+    // verifico se il testo di ricerca non è vuoto
+    if(testo_ricerca != '') {
+        // il testo ricercato non è vuoto => applico la ricerca e filtro i contatti
+        // per ogni contatto, verifico se il nome corrisponde al testo cercato
+        $('.contact').each(function() {
+            // recupero il nome di questo contatto
+            var nome_contatto = $(this).find('.contact-name').text().toLowerCase();
+            // console.log(nome_contatto);
+            // verifico se il testo cercato è contenuto all'interno del nome del contatto
+            if(nome_contatto.includes(testo_ricerca)) {
+                // ho trovato una corrispondenza => visualizzo il contatto
+                $(this).show();
+                // console.log('corrisponde');
+            } else {
+                // non c'è alcuna corrispondeza => nascondo il contatto
+                $(this).hide();
+                // console.log('non corrisponde');
+            }
+        });
+    } else {
+        // il testo ricercato è vuoto => non applico alcun filtro
+        // visualizzo tutti i contatti
+        $('.contact').show();
+    }
+});
+
 // funzione per inviare un nuovo messaggio
 function invia_messaggio() {
     // recupero il testo inserito dall'utente nell'input
