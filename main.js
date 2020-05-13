@@ -43,5 +43,20 @@ function invia_messaggio() {
         $('.right-messages.active').append(nuovo_messaggio);
         // resetto l'input
         $('.new-message-inputs').val('');
+        // risposta del pc
+        // imposto un timeout di 1s e poi ci sarà la risposta del pc
+        setTimeout(risposta_pc, 1000);
     }
+}
+
+// funzione per aggiungere alla conversazione la risposta del pc
+function risposta_pc() {
+    // faccio una copia del template per creare un nuovo messaggio
+    var nuovo_messaggio_pc = $('.template .message').clone();
+    // aggiungo la classe "received" al messaggio
+    nuovo_messaggio_pc.addClass('received');
+    // inserisco il testo "ok" nello span "message-text"
+    nuovo_messaggio_pc.children('.message-text').text('ok');
+    // inserisco il nuovo messaggio nel contenitore di tutti i messaggi della conversazione
+    $('.right-messages.active').append(nuovo_messaggio_pc);
 }
