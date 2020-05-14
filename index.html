@@ -31,13 +31,13 @@
 					</div>
 				</div>
 				<div class="left-searchbar">
-					<label class="search-label" for="search">
+					<label class="search-label" for="contacts-filter">
 						<i class="fa fa-search" aria-hidden="true"></i>
 					</label>
 					<input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat" name="search">
 				</div>
 				<div class="contacts">
-					<div class="contact active">
+					<div class="contact active" data-chat="c1">
 						<div class="contact-logo">
 							<img src="img/avatar_1.jpg" alt="">
 						</div>
@@ -49,7 +49,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c2">
 						<div class="contact-logo">
 							<img src="img/avatar_2.jpg" alt="">
 						</div>
@@ -61,7 +61,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c3">
 						<div class="contact-logo">
 							<img src="img/avatar_3.jpg" alt="">
 						</div>
@@ -73,7 +73,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c4">
 						<div class="contact-logo">
 							<img src="img/avatar_4.jpg" alt="">
 						</div>
@@ -85,7 +85,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c5">
 						<div class="contact-logo">
 							<img src="img/avatar_5.jpg" alt="">
 						</div>
@@ -97,7 +97,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c6">
 						<div class="contact-logo">
 							<img src="img/avatar_6.jpg" alt="">
 						</div>
@@ -109,7 +109,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c7">
 						<div class="contact-logo">
 							<img src="img/avatar_7.jpg" alt="">
 						</div>
@@ -121,7 +121,7 @@
 							<small>Non poteva essere altrimenti</small>
 						</div>
 					</div>
-					<div class="contact">
+					<div class="contact" data-chat="c8">
 						<div class="contact-logo">
 							<img src="img/avatar_8.jpg" alt="">
 						</div>
@@ -149,8 +149,14 @@
 				</div>
 				<div class="right-messages-container" >
 					<!-- inseriamo a mano i vari pannelli per la versione base -->
-					<div class="right-messages active">
-					</div>
+					<div class="right-messages active" data-chat="c1"></div>
+					<div class="right-messages" data-chat="c2"></div>
+					<div class="right-messages" data-chat="c3"></div>
+					<div class="right-messages" data-chat="c4"></div>
+					<div class="right-messages" data-chat="c5"></div>
+					<div class="right-messages" data-chat="c6"></div>
+					<div class="right-messages" data-chat="c7"></div>
+					<div class="right-messages" data-chat="c8"></div>
 				</div>
 				<div class="right-footer">
 					<div class="right-footer-icon f-left">
