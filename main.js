@@ -90,7 +90,24 @@ $('.contact').click(function() {
 
 });
 
+// intercetto il click sull'icona del dropdown del messaggio
+$('.right-messages').on('click', '.message-options', function(){
+    // visualizzo il div "message-options-panel" corrispondente al messaggio su cui ho cliccato e aggiungo la classe "z-index-100" per far sì che il pannellino sia sempre visibile
+    $(this).siblings('.message-options-panel').toggleClass('active z-index-100');
+});
 
+// quando esco con il mouse da un messaggio, chiudo un eventuale pannello di opzioni aperto
+$('.right-messages').on('mouseleave', '.message', function() {
+    // tolgo la classe active e z-index-100 al pannello delle opzioni di questo messaggio
+    $('.message-options-panel.active').removeClass('active z-index-100');
+});
+
+// intercetto il click sulla voce "cancella messaggio"
+$('.right-messages').on('click', '.message-destroy', function(){
+    // $(this).parent().siblings('.message-text').text('messaggio eliminato!');
+    // cancello il messaggio corrispondente
+    $(this).closest('.message').remove();
+});
 
 // funzione per inviare un nuovo messaggio
 function invia_messaggio() {
