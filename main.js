@@ -1,3 +1,6 @@
+var html_template = $('#message-template').html();
+var template_function = Handlebars.compile(html_template);
+
 // intercetto il click sull'icona di destra
 $('.right-footer-icon').click(invia_messaggio);
 
@@ -115,12 +118,13 @@ function invia_messaggio() {
     var testo_utente = $('.new-message-inputs').val();
     // verifico che il testo digitato non sia vuoto (o che non contenga solo " ")
     if(testo_utente.trim() != '') {
-        // faccio una copia del template per creare un nuovo messaggio
-        var nuovo_messaggio = $('.template .message').clone();
-        // aggiungo la classe "sent" al messaggio
-        nuovo_messaggio.addClass('sent');
-        // inserisco il testo dell'utente nello span "message-text"
-        nuovo_messaggio.children('.message-text').text(testo_utente);
+        // creo un oggetto che contiene i dati con cui compilare i template
+        var placeholder = {
+            'classe': 'sent',
+            'messaggio': testo_utente
+        };
+        var nuovo_messaggio = template_function(placeholder);
+
         // inserisco il nuovo messaggio nel contenitore di tutti i messaggi della conversazione
         $('.right-messages.active').append(nuovo_messaggio);
         // resetto l'input
@@ -133,12 +137,12 @@ function invia_messaggio() {
 
 // funzione per aggiungere alla conversazione la risposta del pc
 function risposta_pc() {
-    // faccio una copia del template per creare un nuovo messaggio
-    var nuovo_messaggio_pc = $('.template .message').clone();
-    // aggiungo la classe "received" al messaggio
-    nuovo_messaggio_pc.addClass('received');
-    // inserisco il testo "ok" nello span "message-text"
-    nuovo_messaggio_pc.children('.message-text').html('ciao<br>come stai?');
+    // creo un oggetto che contiene i dati con cui compilare i template
+    var placeholder_pc = {
+        'classe': 'received',
+        'messaggio': 'ok'
+    };
+    var nuovo_messaggio_pc = template_function(placeholder_pc);
     // inserisco il nuovo messaggio nel contenitore di tutti i messaggi della conversazione
     $('.right-messages.active').append(nuovo_messaggio_pc);
 }
